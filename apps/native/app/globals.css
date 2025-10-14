@@ -1,0 +1,4 @@
+/* biome-ignore-all lint/suspicious/noUnknownAtRules: ignore */
+
+@import "nativewind/theme";
+@import "@infinitunes/ui/globals.css";

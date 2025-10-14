@@ -1,0 +1,48 @@
+{
+  "name": "@infinitunes/api",
+  "type": "module",
+  "scripts": {
+    "build": "tsdown",
+    "type-check": "tsc --noEmit",
+    "clean": "git clean -xdf .turbo dist node_modules"
+  },
+  "dependencies": {
+    "@infinitunes/auth": "workspace:*",
+    "@infinitunes/db": "workspace:*",
+    "@trpc/client": "catalog:",
+    "@trpc/server": "catalog:",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@infinitunes/ts-config": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "require": "./dist/index.js",
+      "default": "./src/index.ts"
+    },
+    "./routers": {
+      "types": "./src/routers/index.ts",
+      "import": "./src/routers/index.ts",
+      "require": "./dist/routers/index.js",
+      "default": "./src/routers/index.ts"
+    },
+    "./routers/*": {
+      "types": "./src/routers/*.ts",
+      "import": "./src/routers/*.ts",
+      "require": "./dist/routers/*.js",
+      "default": "./src/routers/*.ts"
+    },
+    "./*": {
+      "types": "./src/*.ts",
+      "import": "./src/*.ts",
+      "require": "./dist/*.js",
+      "default": "./src/*.ts"
+    }
+  }
+}

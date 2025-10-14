@@ -1,0 +1,23 @@
+name: infinitunes
+
+services:
+  postgres:
+    image: postgres
+    container_name: infinitunes-postgres
+    environment:
+      POSTGRES_DB: infinitunes
+      POSTGRES_USER: infinitunes
+      POSTGRES_PASSWORD: infinitunes
+    ports:
+      - "5432:5432"
+    volumes:
+      - infinitunes_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  infinitunes_postgres_data:
